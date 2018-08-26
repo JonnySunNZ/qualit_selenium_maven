@@ -33,7 +33,7 @@ public class QualitSmokeStepDefinition {
 
 	@Given("I am in the qualit home page")
 	public void i_am_in_the_qualit_home_page() {
-		BrowserDriver.getDriver().manage().window().maximize();
+		Thread.sleep(5000);
 		hPage = new HomePage(BrowserDriver.getDriver());
 	}
 
