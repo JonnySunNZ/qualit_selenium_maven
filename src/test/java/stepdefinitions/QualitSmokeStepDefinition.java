@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 
 import cucumber.api.Scenario;
@@ -19,10 +20,16 @@ public class QualitSmokeStepDefinition {
 	@Before
 	public void setupBrowser(Scenario scenario) {
 		
-		System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-
-		// set the driver based on property above
-		BrowserDriver.setDriver(new ChromeDriver());
+//		System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+//
+//		// set the driver based on property above
+//		BrowserDriver.setDriver(new ChromeDriver());
+//		BrowserDriver.getDriver().manage().window().maximize();
+//		BrowserDriver.getDriver().get("http://www.qualit.co.nz");
+		
+		// try geckodriver
+		System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver.exe");
+		BrowserDriver.setDriver(new FirefoxDriver());
 		BrowserDriver.getDriver().manage().window().maximize();
 		BrowserDriver.getDriver().get("http://www.qualit.co.nz");
 	}
