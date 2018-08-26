@@ -5,24 +5,24 @@ import org.openqa.selenium.WebDriver;
 import common.BasePage;
 
 public class HomePage extends BasePage {
-	private String searchButtonLoc = "search";
-	private String inputFieldLoc = "SearchForm_SearchForm_Search";
-	private String goBtn = "SearchForm_SearchForm_action_results";
+	private String searchButtonLoc = "/html/body/div[1]/div/a[2]";
+	private String inputFieldLoc = "/html/body/div[1]/div/div[2]/form/fieldset/div/div/input";
+	private String goBtn = "/html/body/div[1]/div/div[2]/form/fieldset/input";
 
 	public HomePage(WebDriver driver) {
 		super(driver);
 	}
 
 	public void clickSearchBtn() {
-		findById(searchButtonLoc).click();
+		findByXPath(searchButtonLoc).click();
 	}
 	
 	public void inputSearchContent() {
-		findById(inputFieldLoc).sendKeys("Meet our team");
+		findByXPath(inputFieldLoc).sendKeys("Meet our team");
 	}
 	
 	public void clickGoBtn() {
-		findById(goBtn).click();
+		findByXPath(goBtn).click();
 	}
 	
 }
