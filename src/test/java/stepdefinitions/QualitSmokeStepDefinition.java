@@ -34,8 +34,7 @@ public class QualitSmokeStepDefinition {
 
 	@Given("I am in the qualit home page")
 	public void i_am_in_the_qualit_home_page() throws InterruptedException {
-		Thread.sleep(5000);
-		hPage = new HomePage(BrowserDriver.getDriver());
+	
 	}
 
 	@Given("I input search content")
