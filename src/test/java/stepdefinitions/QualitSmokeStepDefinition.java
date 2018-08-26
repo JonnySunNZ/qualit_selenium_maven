@@ -24,6 +24,7 @@ public class QualitSmokeStepDefinition {
 		// set the driver based on property above
 		BrowserDriver.setDriver(new ChromeDriver());
 		BrowserDriver.getDriver().get("http://www.qualit.co.nz");
+		BrowserDriver.getDriver().manage().window().maximize();
 	}
 
 	@After
