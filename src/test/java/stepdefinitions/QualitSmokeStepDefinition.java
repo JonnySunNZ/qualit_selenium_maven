@@ -18,10 +18,9 @@ public class QualitSmokeStepDefinition {
 
 	@Before
 	public void setupBrowser(Scenario scenario) {
-		//		System.out.println("\"" + System.getProperty("timestamp") + "\"");
+		
 		System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
 
-		// set the driver based on property above
 		BrowserDriver.setDriver(new ChromeDriver());
 		BrowserDriver.getDriver().manage().window().maximize();
 		BrowserDriver.getDriver().get("http://www.qualit.co.nz");
