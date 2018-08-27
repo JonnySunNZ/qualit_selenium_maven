@@ -29,5 +29,9 @@ public class BasePage {
 	protected WebElement findByName(String loc) {
 		return new WebDriverWait(driver, timeOut).until(ExpectedConditions.visibilityOfElementLocated(By.name(loc)));
 	}
+	
+	protected WebElement findByCss(String loc) {
+		return new WebDriverWait(driver, timeOut).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(loc)));
+	}
 
 }
