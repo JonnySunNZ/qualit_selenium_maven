@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.chrome.ChromeDriver;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
@@ -25,7 +26,12 @@ public class QualitSmokeStepDefinition {
 
 		// set the driver based on property above
 		BrowserDriver.setDriver(new ChromeDriver());
-		BrowserDriver.getDriver().manage().window().maximize();
+		
+		Dimension d = new Dimension(1382,744); 
+		//Resize the current window to the given dimension
+		BrowserDriver.getDriver().manage().window().setSize(d); 
+		
+//		BrowserDriver.getDriver().manage().window().maximize();
 		BrowserDriver.getDriver().get("http://www.qualit.co.nz");
 		
 //		// try using geckodriver
