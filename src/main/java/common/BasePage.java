@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
 	protected WebDriver driver;
-	protected long timeOut = 60;
+	protected long timeOut = 10;
 
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
