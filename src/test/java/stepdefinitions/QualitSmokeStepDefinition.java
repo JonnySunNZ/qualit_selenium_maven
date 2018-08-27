@@ -1,12 +1,13 @@
 package stepdefinitions;
 
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import pageobjs.HomePage;
@@ -27,7 +28,7 @@ public class QualitSmokeStepDefinition {
 		BrowserDriver.getDriver().manage().window().maximize();
 		BrowserDriver.getDriver().get("http://www.qualit.co.nz");
 		
-//		// try geckodriver
+//		// try using geckodriver
 //		System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver.exe");
 //		BrowserDriver.setDriver(new FirefoxDriver());
 //		BrowserDriver.getDriver().manage().window().maximize();
@@ -44,9 +45,10 @@ public class QualitSmokeStepDefinition {
 	
 	}
 
-	@Given("I input search content")
+	@And("I input search content")
 	public void i_input_search_content() {
 		hPage = new HomePage(BrowserDriver.getDriver());
+		
 		hPage.clickSearchBtn();
 		hPage.inputSearchContent();
 		hPage.clickGoBtn();
@@ -55,6 +57,7 @@ public class QualitSmokeStepDefinition {
 	@Then("I should see search result")
 	public void verify() throws InterruptedException {
 		rPage = new ResultPage(BrowserDriver.getDriver());
+		
 		Assert.assertEquals(rPage.verifySearchResult(), true);
 		
 		Thread.sleep(2000);

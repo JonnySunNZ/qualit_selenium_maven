@@ -12,10 +12,6 @@ public class BasePage {
 
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
-		// new WebDriverWait(driver,
-		// timeOut).until(((JavascriptExecutor)driver).executeScript("return
-		// document.readyState").equals("complete")); <- needs work
-
 	}
 
 	protected WebElement findById(String loc) {
