@@ -6,7 +6,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 @CucumberOptions
 (
     features = "src/test/resources/features",
-    glue = {"stepdefinitions"},
+    glue = {"stepdefinitions"}
     //plugin = {"pretty", "html:target/cucumber-html-report", "json:target/cucumber.json"}
 )
 public class SecCukesRunnerTest extends AbstractTestNGCucumberTests{
