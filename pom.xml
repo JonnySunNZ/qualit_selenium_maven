@@ -44,17 +44,30 @@
         <version>6.9.10</version>
         <!-- <scope>test</scope> -->
       </dependency>
+      
+      <!-- dependency for allure -->
+      <dependency>
+	    <groupId>io.qameta.allure</groupId>
+	    <artifactId>allure-testng</artifactId>
+	    <version>2.0-BETA19</version>
+	  </dependency>
+	  
   </dependencies>
   
   <properties>
     <acttimestamp>${maven.build.timestamp}</acttimestamp>
     <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+    
+    <!-- properties for allure -->
+    <aspectj.version>1.8.10</aspectj.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    
   </properties>
  
   <build>
     <plugins>
       <!-- Surefire plugin settings -->
-      <plugin>
+      <!-- <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.22.0</version>
@@ -66,7 +79,7 @@
             <suiteXmlFile>testng.xml</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
-      </plugin>
+      </plugin> -->
       <!-- END OF Surefire plugin settings -->
       
       <!-- Failsafe plugin settings -->
@@ -121,6 +134,38 @@
         </executions>
       </plugin>
       <!-- END OF Maven resources plugin -->
+      
+      <!-- plugins for allure -->
+		<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.20</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>TestNG.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+      
+      
     </plugins>
   </build>
 </project>
