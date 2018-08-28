@@ -67,5 +67,17 @@ public class QualitSmokeStepDefinition {
 		
 		Thread.sleep(2000);
 	}
+	
+	@And("I click contact us link")
+	public void i_click_contact_us_link() {
+		hPage = new HomePage(BrowserDriver.getDriver());
+		
+		hPage.clickCUBtn();
+	}
+	
+	@Then("I should see contact us page")
+	public void i_should_see_contact_us_page() throws InterruptedException {
+		Thread.sleep(3000);
+	}
 
 }
