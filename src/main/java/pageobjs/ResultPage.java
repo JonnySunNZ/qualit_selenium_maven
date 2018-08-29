@@ -17,8 +17,6 @@ public class ResultPage extends BasePage {
 		boolean correctResultFound = false;
 		WebElement searchContent = findByXPath(resultField);
 
-		// check that the text of profileName
-		// in fact contains the set full name
 		if (searchContent.getText().contains("Meet our team")) {
 			correctResultFound = true;
 		}
